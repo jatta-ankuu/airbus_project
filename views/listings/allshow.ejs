@@ -1,0 +1,45 @@
+<%layout("/layout/boilerplate.ejs")%>
+
+   <BR>
+    <h1><%=singdata.title%></h1>
+    <div class="card cardlist" style="width: 18rem;">
+  <img src="<%=singdata.image.url%>" class="card-img-top" alt="Image not load">
+  <div class="card-body">
+    <P><B>Owner By:-</B><%=singdata.owner.username%></P>
+    <h5 class="card-title"><%=singdata.title%></h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%=singdata.description%></li>
+    <li class="list-group-item">Price: &#8377; <%=singdata.price.toLocaleString("en-IN")%></li>
+    <li class="list-group-item">Location: <%=singdata.location%></li>
+    <li class="list-group-item">Country: <%=singdata.country%></li>
+  </ul>
+</div>
+<%if(currUser){%>
+<div class="div">
+<form method="get" action="/listed/<%=singdata._id%>/review">
+  <button class="btn btn-warning">Write Review..!</button>
+  </form>
+  </div>
+  <%}%>
+  <hr>
+   <h2>All Reviews :-</h2>
+    <div class="row">
+
+        <% for(review of singdata.review) {%>
+        <div class="card ms-3 mb-3 col-5">
+            <div class="card-body">
+        <P class="card-title">Wrote by:-<%=review.author.username%></P>
+        <p class="card-text"><%=review.comment%></p>
+         <h6><%=review.range%> star</h6>
+  <p class="starability-result" data-rating="<%=review.range%>" ></p>
+  
+         <%if(review.author._id.equals(currUser._id)){%>
+         <form method="post" action="/listed/<%=singdata._id%>/delete/<%=review._id%>?_method=delete">
+          <button  class="btn btn-outline-danger">Delete</button>
+         </form>
+         <%}%>
+</div>
+</div>
+      <%}%>
+</div>

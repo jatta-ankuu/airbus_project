@@ -1,0 +1,30 @@
+<%layout("/layout/boilerplate.ejs")%>
+<body>
+    <form method="post" action="/listed/update/<%=id%>/reviewd" novalidate class="needs-validation">
+         <div class="mb-3 mt-3">
+            <label for="range1"  class="form-label">Range</label>
+        <fieldset class="starability-slot">
+  <!-- <input type="radio" id="no-rate" class="input-no-rate" name="rating[range]" value="0" checked aria-label="No rating." /> -->
+  <input type="radio" id="first-rate1" name="rating[range]" value="1"  />
+  <label for="first-rate1" title="Terrible">1 star</label>
+  <input type="radio" id="first-rate2" name="rating[range]" value="2" />
+  <label for="first-rate2" title="Not good">2 stars</label>
+  <input type="radio" id="first-rate3" name="rating[range]" value="3" />
+  <label for="first-rate3" title="Average">3 stars</label>
+  <input type="radio" id="first-rate4" name="rating[range]" value="4" />
+  <label for="first-rate4" title="Very good">4 stars</label>
+  <input type="radio" id="first-rate5" name="rating[range]" value="5" />
+  <label for="first-rate5" title="Amazing">5 stars</label>
+</fieldset>
+</div>
+        <div class="comment">
+            <label for="Comment">Comment</label>
+            <textarea name="rating[comment]" class="form-control" placeholder="This looks like a real nature....!" required
+            ></textarea>
+            <div class="invalid-feedback">Comment must be enter</div>
+            <div class="valid-feedback">Looks Good...!</div>
+        </div>
+        <br>
+        <button class="btn btn-dark">Submit</button>
+    </form>
+</body>

@@ -1,0 +1,49 @@
+<%-layout("/layout/boilerplate.ejs")%>
+<div class="row">
+   <div class="col-8">
+    <BR>
+    <h2>Thanks for choosing our site for resjister</h2>
+
+    <form method="post" action="/list/added" novalidate class="needs-validation" enctype="multipart/form-data">
+
+        <div class="mb-3">
+        <label for="title" class="table-title">Title</label>
+        <input name="listed[title]"placeholder="Enter title" required class="form-control">
+        </div>
+
+        <div class="mb-3">
+        <label for="Description" class="des-table">Description</label>
+        <textarea name="listed[Description]" placeholder="Description" class="form-control" required></textarea>
+        </div>
+        
+        <div class="mb-3">
+         <label for="image" class="image-table">Upload Image</label>
+        <input name="listed[image]" type="file"
+        class="form-control"  required>
+       
+        </div>
+       
+        <div class="row">
+         <div class="mb-3 col-4 ">
+          <label for="price" class="price-table" >Price</label>
+        <input name="listed[price]" placeholder="Price" class="form-control" required>
+        </div>
+
+        <div class="mb-3 col-md-8">
+        <label for="location" class="location-table">Location</label>
+        <input name="listed[location]" placeholder="Enter location"class="form-control" required>
+        </div>
+
+        </div>
+
+        <div class="mb-3">
+        <label for="country" class="country">Country</label>
+        <input name="listed[country]" placeholder="Enter country" class="form-control" required>
+        </div>
+        
+        <button class="btn btn-dark">
+            Add List
+        </button>
+    </form>
+    </div>
+    </div>

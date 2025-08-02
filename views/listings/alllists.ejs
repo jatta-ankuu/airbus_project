@@ -1,0 +1,86 @@
+<%layout("/layout/boilerplate")%> 
+<style>
+  .filters{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 1.1rem;
+    padding-bottom: 1.4rem;
+  }
+  .filter{
+    text-align: center;
+    margin-right: 2rem;
+    opacity: 0.7;
+  }
+  .filter:hover{
+    opacity: 1;
+    cursor: pointer;
+  }
+  .filter p{
+    font-size: 0.8rem;
+  }
+</style>
+<body>
+  <div class="filters" >
+    <div class="filter" >
+    <i class="fa-solid fa-fire"></i>
+    <div >Trending</div>
+    </div>
+    <div class="filter">
+    <i class="fa-solid fa-bed"></i> 
+    <div>Rooms</div>
+    </div>
+    <div class="filter">
+    <i class="fa-solid fa-mountain"></i>
+    <div>Mountain</div>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-mountain-city"></i>  
+    <div>Hill City</div>
+    </div>
+    <div class="filter">
+    <i class="fa-solid fa-campground"></i>
+    <div>Camping</div>
+    </div>
+    <div class="filter">
+    <i class="fa-solid fa-person-swimming"></i>
+    <div>Amazing Pool</div>
+    </div>
+    <div class="filter " >
+    <i class="fa-solid fa-cow"></i>
+    <div>Farms</div>
+    </div>
+    <div class="filter ">
+    <i class="fa-solid fa-chess"></i>
+    <div>Castle</div>
+    </div>
+    <div class="filter">
+    <i class="fa-solid fa-snowflake"></i>
+    <div>snow</div>
+    </div>
+  </div>
+  </nav>
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+     <%  for(let data of alldata){%>
+        <a href="/lists/<%=data._id%>" class="ancer">
+<div class="card cardlist">
+  <img src="<%=data.image.url%>" class="card-img-top" alt="Image not load">
+  <div class="card-body">
+    <p class="card-text">
+       <b> <%=data.title%> </b><br>
+       &#8377;   <%= data.price.toLocaleString("en-IN")%>/night
+    </p>
+    <%if(currUser && currUser._id.equals(data.owner._id)){%>
+      <form method="get" action="/list/<%=data._id%>/edit">
+                    <button  class="btn btn-outline-primary" >Edit..!</button>
+                </form>
+                <form method="post" action="/list/<%=data._id%>/delete">
+                    <button class="btn btn-outline-danger">Delete..!</button>
+                </form>  
+                <%}%>
+  </div>
+</div>
+        </a>
+     <% } %>
+     </div>
+     
+</body>

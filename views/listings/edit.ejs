@@ -1,0 +1,52 @@
+<%-layout("/layout/boilerplate.ejs")%>
+<div class="row">
+    <div class="col-md-8">
+ <h2><b>Welcome to edit page:-</b></h2>
+    <form 
+    method="post"
+     action="/lists/<%=editdata._id%>/updated" 
+     novalidate
+     class="needs-validation"
+     enctype="multipart/form-data"
+     > 
+
+
+             <div class="mb-3">
+         <label for="title" class="table-title">Title</label>
+         <input name="data[title]" class="form-control"  value="<%=editdata.title%>"  required>
+         </div>
+         
+         <div class="mb-3">
+             <label for="Description" class="table-description">Description</label>
+        <textarea name="data[Description]" class="form-control"  required><%=editdata.description%></textarea>
+        </div>
+        <div class="mb-3">
+         <img style="width: 200px; height: 200px;" src="<%=finalimg%>" alt="Image not load">
+        </div>
+        <div class="mb-3">
+         <label for="image" class="image-table">Upload new Image</label>
+        <input name="listed[image]" class="form-control" type="file">
+        </div>
+
+        <div class="mb-3">
+          <label for="price" class="table-price">Price</label>
+        <input name="data[price]" class="form-control"  value="<%=editdata.price%>" required >
+        </div>
+
+        <div class="mb-3">
+          <label for="location" class="table-location">Location</label>
+        <input name="data[location]" class="form-control"  value="<%=editdata.location%>" required>
+        <div class="invalid-feedback">Location should be enter</div>
+        </div>
+
+        <div class="mb-3">
+             <label for="country" class="table-Country">Country</label>
+        <input name="data[country]"  value="<%=editdata.country%>" class="form-control" required >
+        </div>
+    <br>
+        <button class="btn btn-dark">
+            Submit
+        </button>
+    </form>
+    </div>
+</div>
