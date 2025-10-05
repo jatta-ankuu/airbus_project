@@ -10,7 +10,7 @@ const {storage}=require("../cloudconfig.js");
 const upload= multer({storage});
 
 //INDEX ROUTE
-router.get("/",wrap(control.index));
+router.get("/lists",wrap(control.index));
 
 //READ ROUTER
 router.get("/lists/:id", wrap(control.read));
